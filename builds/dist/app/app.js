@@ -40,3 +40,22 @@ $.material.init();
     $scope.title = 'Это наш ContactCtrl scope title'
   }
 })();
+
+/**
+ * Created by szaharov on 28/05/15.
+ */
+
+
+angular.module('ngFit.contact', ['ngRoute'])
+  .config(function($routeProvider) {
+    $routeProvider.
+    when('/contact', {
+      template: '<h1>Contact</h1>',
+      controller: 'ContactCtrl'
+    })
+  })
+    .controller('ContactCtrl',
+    ['scope', function($scope) {
+    }]);
+
+angular.module('ngFit.navbar', ['ngRoute']);
