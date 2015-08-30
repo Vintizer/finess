@@ -3,11 +3,11 @@ $.material.init();
 
 (function(){
   angular
-    .module('ngFit', ['ngRoute'])
+    .module('ngFit', ['ngRoute', 'ngFit.contact', 'ngFit.navbar'])
     .config(ngFitConfig)
     .controller('MainCtrl', MainCtrl)
     .controller('AboutCtrl', AboutCtrl)
-    .controller('ContactCtrl', ContactCtrl);
+    ;
 
     function ngFitConfig($routeProvider) {
       $routeProvider
@@ -36,7 +36,5 @@ $.material.init();
   function AboutCtrl ($scope) {
     $scope.title = 'Это наш AboutCtrl scope title'
   }
-  function ContactCtrl ($scope) {
-    $scope.title = 'Это наш ContactCtrl scope title'
-  }
+
 })();

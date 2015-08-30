@@ -2,10 +2,11 @@ angular.module('ngFit.contact', ['ngRoute'])
   .config(function($routeProvider) {
     $routeProvider.
     when('/contact', {
-      template: '<h1>Contact</h1>',
+      templateUrl: 'app/components/contact/contact.html',
       controller: 'ContactCtrl'
     })
   })
-    .controller('ContactCtrl',
-    ['scope', function($scope) {
-    }]);
+    .controller('ContactCtrl', ContactCtrl);
+    function ContactCtrl ($scope) {
+      $scope.title = 'Это наш ContactCtrl scope title'
+    }
