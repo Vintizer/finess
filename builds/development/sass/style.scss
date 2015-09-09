@@ -14,3 +14,17 @@ body {
   height: 100%;
   font-size: $font-size-base;
 }
+.nav li a:before {
+  content: " | ";
+}
+.nav li:first-child a:before {
+  content: none;
+}
+.navbar-brand {
+  display: block;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
