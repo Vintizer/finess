@@ -3,7 +3,7 @@ $.material.init();
 
 (function(){
   angular
-    .module('ngFit', ['ngRoute', 'ngFit.contact', 'ngFit.navbar'])
+    .module('ngFit', ['ngRoute', 'ngFit.contact', 'ngFit.navbar', 'ngFit.workout'])
     .config(ngFitConfig)
     .controller('MainCtrl', MainCtrl)
     .controller('AboutCtrl', AboutCtrl)
@@ -25,10 +25,17 @@ $.material.init();
         })
 
     }
-
-  function MainCtrl ($scope) {
+  MainCtrl.$inject = ['$scope', '$firebaseObject'];
+  function MainCtrl ($scope, $firebaseObject) {
+    var vm = this;
     $scope.title = 'I can see you';
     $scope.name = 'Vintizer';
+    var myDataRef = new Firebase('https://ngfitvintizer.firebaseio.com/');
+    var refObj = $firebaseObject(myDataRef);
+    refObj.$loaded(function() {
+      vm.db = refObj;
+      console.log(vm.db);
+    });
     $scope.clickFunction = function (name) {
       alert('Hello, ' + name)
     }
